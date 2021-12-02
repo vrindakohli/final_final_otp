@@ -78,7 +78,7 @@ public class MyController implements ErrorController {
 	@GetMapping("/validate/{user_id}/{otp}")
 	@ApiOperation(value = "validate otp", notes = "input email/sms ie. your user id and the otp to validate otp")
 
-	public ApplicationResponseEntity<ResponseDto>validateOTP(@PathVariable String user_id, @PathVariable String otp) {
+	public ApplicationResponseEntity<ResponseDto>validateOTP(@PathVariable String user_id, @PathVariable String otp) throws Exception {
 		//System.out.println(user_id+""+otp);
 	
 			try {
@@ -86,7 +86,8 @@ public class MyController implements ErrorController {
 				return new ApplicationResponseEntity<>("200", "succesfull", modelMapper.map(otpEntities, ResponseDto.class));
 			} catch (NoUserException | InvalidOTPException | TimeStampExceededException e) {
 				// TODO Auto-generated catch block
-				return new ApplicationResponseEntity<>("400", e.toString(), null);
+				//return new ApplicationResponseEntity<>("400", e.toString(), null);
+				throw e;
 			}
 		
 	}

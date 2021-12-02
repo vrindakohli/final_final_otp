@@ -1,0 +1,19 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: otp-service
+    url: https://localhost:8080/api/v1.1/otp/addData
+    routes:
+      - name: otp-service-routes
+        paths:
+          - /addData
+        strip_path: true
+ 
+#  - name: otp-service
+#    url: https://localhost:8080/api/v1.1/otp/validate/{user_id}/{otp}
+#    routes:
+#      - name: otp-service-routes
+#        paths:
+#          - /api/v1/otp-validate
+#        strip_path: true

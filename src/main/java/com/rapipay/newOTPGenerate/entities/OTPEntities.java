@@ -7,18 +7,19 @@ import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.sun.istack.NotNull;
 
 import lombok.Data;
 
 @Data
-@Entity
+@Document("OTP2")
 public class OTPEntities {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	private String user_id;
+	String user_id;
 
 	private long order_id;
 
